@@ -12,6 +12,9 @@ public :
 	void sendRight();
 	void sendTop();
 	void sendBottom();
+	void reset();
+	void sendOui();
+	void sendNon();
 
 };
 

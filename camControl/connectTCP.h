@@ -17,7 +17,6 @@ public:
 private:
     int clientSocket;
 
-    // Autres membres privés ou méthodes peuvent être ajoutés selon les besoins.
 };
 
 #endif  // CONNECTTCP_H

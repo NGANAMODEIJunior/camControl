@@ -1,4 +1,6 @@
 #include "listenWebSocket.h"
+#include "camera.h"
+#include <QThread>
 
 ListenWebsocket::ListenWebsocket(QObject* parent) : QObject(parent), webSocketServer(nullptr) {
 }
@@ -11,8 +13,52 @@ void ListenWebsocket::onNewConnection() {
 }
 
 void ListenWebsocket::processMessage(QString message) {
-    // Traitez le message reçu
+    // Traitez le message reçu pour appeler la méthode nécessaire
     qDebug() << "Action reçue : " << message;
+    if (message == "allumer") {
+        Cam1.sendOn();
+
+    }
+    else if (message == "haut") {
+        Cam1.sendTop();
+
+    }
+    else if (message == "droite") {
+        Cam1.sendRight();
+
+    }
+    else if (message == "gauche") {
+        Cam1.sendLeft();
+
+    }
+    else if (message == "bas") {
+        Cam1.sendBottom();
+
+    }
+    else if (message == "eteindre") {
+        Cam1.sendOff();
+
+    }
+    else if (message == "reset") {
+        Cam1.reset();
+
+    }
+    else if (message == "oui") {
+        Cam1.reset();
+        Cam1.sendOui();
+        QThread::sleep(1);
+        Cam1.reset();
+
+    }
+    else if (message == "non") {
+        Cam1.reset();
+        Cam1.sendNon();
+        QThread::sleep(1);
+        Cam1.reset();
+
+    }
+
+    
 
     // Ici, vous pouvez ajouter la logique pour répondre au message si nécessaire
 }

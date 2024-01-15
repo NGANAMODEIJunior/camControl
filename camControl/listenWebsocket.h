@@ -4,6 +4,8 @@
 #include <QCoreApplication>
 #include <QWebSocketServer>
 #include <QWebSocket>
+#include "camera.h" 
+
 
 class ListenWebsocket : public QObject {
     Q_OBJECT
@@ -23,4 +25,6 @@ private slots:
 private:
     // Instance du serveur WebSocket
     QWebSocketServer* webSocketServer;
+    // Instance de la caméra
+    camera Cam1;
 };
